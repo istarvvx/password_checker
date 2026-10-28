@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Password strength checker</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>How strong is your password?</h1>
+    <p class="note">Test a sample, not a password you actually use. Nothing is stored or logged.</p>
+
+    <div class="field">
+      <label for="pw">Password</label>
+      <input id="pw" type="password" maxlength="128" autocomplete="off" spellcheck="false">
+      <label class="show"><input id="toggle" type="checkbox"> Show password</label>
+    </div>
+    <button id="check" type="button">Check strength</button>
+
+    <div id="alert" class="alert" role="alert" hidden>Leaked password. Change it now.</div>
+    <div id="meter" class="meter" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p id="result" role="status" aria-live="polite"></p>
+    <ul id="tips"></ul>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
