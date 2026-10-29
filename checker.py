@@ -102,10 +102,10 @@ def check_password(password, common, db):
 
     match = _leak_match(password, common, db)
     if match:
-        msg = ("This exact password appears in leaked-password lists. Attackers try these first."
+        msg = ("This exact password appears in leaked-password Database. Attackers try these first."
                if match == "exact" else
-               "This is a close variant of a leaked password (case, trailing digits or symbols, "
-               "or swaps like @ for a). Attackers try these first.")
+               "This is a close variant of a leaked password "
+               )
         return {"label": LABELS[0], "level": 0, "entropy": 0, "leaked": True, "match": match,
                 "feedback": [msg, "Change it now, and change it anywhere else you have used it."]}
 
@@ -122,15 +122,15 @@ def check_password(password, common, db):
 
     tips = []
     if len(password) < 12:
-        tips.append("Use at least 12 characters (16 or more is better). Only 12+ can rate Strong.")
+        tips.append("Use at least 12 characters (more is better).")
     if len(reduced) < len(password) - 1:
         tips.append("Avoid repeats and sequences like 'aaa', 'abc', '1234' or 'qwerty'.")
     if predictable:
-        tips.append("Avoid 'Capitalised word + numbers + symbol'. Attackers try that shape first.")
+        tips.append("Avoid 'General Password Patters.")
     if words is not None and words <= pool:
         tips.append("Words are easy to guess. Use 6+ unrelated words, or random characters.")
     if level == 5:
-        tips = ["Looks strong. Use it for one account only and keep it in a password manager."]
+        tips = ["Looks strong. Don't Use it for more than one account."]
     elif not tips:
         tips.append("Make it longer. Each extra random character adds a lot.")
 
