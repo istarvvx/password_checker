@@ -76,3 +76,5 @@ The app checks passwords against `leaked.bin`, a compact file of SHA-1 prefixes.
 
 - **HTTPS:** Always serve this application over HTTPS in production.
 - **Scaling:** Rate limits are currently in-memory and per-worker. If scaling to multiple nodes, configure a Redis backend for `Flask-Limiter` (`storage_uri`).
+
+- ## LIVE DEMO : [Password Strength Checker](https://web-app-t8ka.onrender.com/)
